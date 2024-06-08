@@ -41,7 +41,6 @@ def color_hex_to_text(colors_hex):
     reversed_text = ','.join(reversed_substrings)
 
     all_text = text + ',' + reversed_text + ',' + substrings[0]
-    print(all_text)
     return all_text
 
 
@@ -50,6 +49,7 @@ def main():
 
     print(f"Wallpaper: {wall}")
     colors = colorgram.extract(wall, 7)
+    colors.sort(key=lambda c: c.hsl.h)
 
     colors_hex = [rgb_to_hex(color.rgb) for color in colors]
 
